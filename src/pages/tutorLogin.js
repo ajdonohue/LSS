@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import PouchDB from "pouchdb";
 import { Link } from "react-router-dom";
+import "../css/tutorLogin.css";
+
+
+//
+//Props -
+//
+//tutorEmail: user input email
+//tutorPassword: user input password
+//emailValidated: set to true if email is valid
+//scene: set to default
 
 class TutorLogin extends Component {
   constructor(props) {
@@ -9,7 +19,7 @@ class TutorLogin extends Component {
       tutorEmail: "",
       tutorPassword: "",
       emailValidated: true,
-      scene: "default"
+      scene: "default",
     };
   }
 
@@ -69,77 +79,92 @@ class TutorLogin extends Component {
   };
 
   handleTutorSelection = () => {
-    this.setState({scene: "Tutor"})
-    this.renderScene()
-  }
+    this.setState({ scene: "Tutor" });
+    this.renderScene();
+  };
 
   renderHome = () => {
     return (
       <div className="container">
-        <h1 className="validateLead">Enter Tutor Information</h1>
-        <div className="validateContainer">
-          <div className="validateForm">
-            <div className="form-group">
-              <label htmlFor="tutorEmail">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                id="tutorEmail"
-                aria-describedby="emailHelp"
-                onInput={this.handleEmail}
-                onBlur={this.validateEmail}
-              />
-              <div
-                className={
-                  this.state.emailValidated
-                    ? "hideEmailVerified card-body"
-                    : "showEmailVerified card-body"
-                }
-              >
-                Invalid Email!
+        <div className="row">
+          <h1 className="validateLead">Enter Tutor Information</h1>
+        </div>
+        <div className="row">
+          <div className="validateContainer">
+            <div className="validateForm">
+              <div className="form-group">
+                <label htmlFor="tutorEmail">
+                  <h2 className="boxHeaders">Email address</h2>
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="tutorEmail"
+                  aria-describedby="emailHelp"
+                  onInput={this.handleEmail}
+                  onBlur={this.validateEmail}
+                />
+                <div
+                  className={
+                    this.state.emailValidated
+                      ? "hideEmailVerified card-body"
+                      : "showEmailVerified card-body"
+                  }
+                >
+                  Invalid Email!
+                </div>
               </div>
-            </div>
-            <div className="form-group">
-              <label htmlFor="validPass">Password</label>
-              <input
-                className="form-control"
-                id="validPass"
-                type="password"
-                onInput={this.handlePass}
-              />
-            </div>
-            <div className="form-group validateBtn">
-              <button
-                className="btn btn-lg btn-dark homeBtn"
-                onClick={this.handleLogin}
-              >
-                Login
-              </button>
+              <div className="form-group">
+                <label htmlFor="validPass">
+                  <h2 className="boxHeaders">Password</h2>
+                </label>
+                <input
+                  className="form-control"
+                  id="validPass"
+                  type="password"
+                  onInput={this.handlePass}
+                />
+              </div>
+              <div className="form-group validateBtn">
+                <button
+                  className="btn btn-lg bookBtn"
+                  onClick={this.handleLogin}
+                >
+                  Login
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     );
-  }
+  };
   renderOptions = () => {
     return (
       <div className="container">
-        <h1 className="validateLead">Select Tutor Type</h1>
-        <div className="validateContainer">
+        <div className="row">
+          <h1 className="validateLead">Select Tutor Type</h1>
+        </div>
+        <div className="row">
+          <div className="validateContainer">
             <div className="form-group validateBtn">
-                <button className="btn btn-lg btn-dark homeBtn" onClick={this.handleTutorSelection}>
-                  Tutor
-                  </button>
-              <div className= "form-group validateBtn">
+              <button
+                className="btn btn-lg bookBtn"
+                onClick={this.handleTutorSelection}
+              >
+                Tutor
+              </button>
+              <div className="form-group validateBtn">
                 <Link to="/peertutor">
-                  <button className="btn btn-lg btn-dark homeBtn">Peer Tutor</button>
+                  <button className="btn btn-lg bookBtn">Peer Tutor</button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
+      </div>
     );
-  }
+  };
 
   renderScene = () => {
     let scene = this.state.scene;
@@ -147,14 +172,8 @@ class TutorLogin extends Component {
     else if (scene === "Tutor") return this.renderHome();
   };
 
-  render () {
-    return ( 
-      <div>
-        {this.renderScene()}
-        {console.log(this.state.scene)}
-      </div>
-      
-    )
+  render() {
+    return <>{this.renderScene()}</>;
   }
 }
 

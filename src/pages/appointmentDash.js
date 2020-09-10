@@ -3,11 +3,17 @@ import PouchDB from "pouchdb";
 import ApptSideNav from "../components/apptSideNav";
 import AppointmentTutorList from "../components/appointmentTutorList";
 import AppointmentTutorCurrentAppt from "../components/appointmentTutorCurrentAppt";
+import QNote from "../components/qNote";
+
+//
+//Props-
+//
+//bookAppointments: an array of appointments which are booked
 
 class AppointmentDashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { bookedAppointments: null };
+    this.state = { bookedAppointments: [] };
   }
 
   componentDidMount = async () => {
@@ -101,18 +107,25 @@ class AppointmentDashboard extends Component {
           analytics={this.handleAnalyticsScene}
           home={this.handleHomeScene}
         />
-        <div className="container-fluid smooth-scroll">
-          <div className="row">
-            <div className="col-6 ">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2">
+            <div className="col ">
               <AppointmentTutorList
                 appointments={this.state.bookedAppointments}
               />
             </div>
-            <div className="col-6">
+            <div className="col">
               <AppointmentTutorCurrentAppt
                 sortedAppointments={this.state.bookedAppointments}
               />
             </div>
+          </div>
+          <div className="row row-cols-1 row-cols-sm-2">
+            {this.state.bookedAppointments.length !== 0 ? (
+              <QNote sID={this.state.bookedAppointments[0].studentID} />
+            ) : (
+              <QNote />
+            )}
           </div>
         </div>
       </div>

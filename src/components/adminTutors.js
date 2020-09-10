@@ -45,7 +45,6 @@ class AdminTutors extends Component {
 
     await this.fetchTutors();
     await this.fetchPeerTutoring();
-    console.log(this.state.programArray);
   };
 
   handleUpdates = async () => {
@@ -173,10 +172,10 @@ class AdminTutors extends Component {
   };
 
   handleFNameInput = (e) => {
-    this.setState({ fNameInput: e.target.value });
+    this.setState({ fNameInput: e.target.value, addBtnState: true });
   };
   handleLNameInput = (e) => {
-    this.setState({ lNameInput: e.target.value });
+    this.setState({ lNameInput: e.target.value, addBtnState: true });
   };
 
   handleTutor = () => {
@@ -184,14 +183,16 @@ class AdminTutors extends Component {
       "https://b705ce6d-2856-466b-b76e-7ebd39bf5225-bluemix.cloudant.com/tutors"
     );
 
+    let s = this.state.emailInput.search("@");
+    let tID = this.state.emailInput.substr(0, s);
     let tutorObj = {
-      _id: this.props._id,
+      _id: tID,
       password: this.state.passInput,
       firstName: this.state.fNameInput,
       lastName: this.state.lNameInput,
       programID: this.state.progInput,
       phoneNumber: this.state.phoneInput,
-      email: this.props.email,
+      email: this.state.emailInput,
       streetAddress: this.state.addressInput,
       city: this.state.cityInput,
       province: this.state.provinceInput,
@@ -235,7 +236,9 @@ class AdminTutors extends Component {
 
     let pResult = await pPromise;
     await this.setState({ programArray: pResult });
-    console.log(this.state.programArray);
+  };
+  handleEmailInput = (e) => {
+    this.setState({ emailInput: e.target.value });
   };
   renderAddTutor = () => {
     return (
@@ -297,7 +300,9 @@ class AdminTutors extends Component {
                 <h4>Program ID</h4>
               </div>
               <div className="col-6 text-center">
-                <select>{this.generatePrograms()}</select>
+                <select className="form-control">
+                  {this.generatePrograms()}
+                </select>
                 {/* <input
                   className="form-control"
                   onInput={this.handleProgInput}
@@ -385,14 +390,37 @@ class AdminTutors extends Component {
                 <h4>Role</h4>
               </div>
               <div className="col-6 text-center">
+                <select
+                  className="form-control"
+                  onChange={this.handleRoleInput}
+                  defaultValue="Tutor"
+                >
+                  <option value="Tutor">Tutor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Appointment">Appointment</option>
+                </select>
+              </div>
+            </div>
+            <div className="row d-flex falseEditRow">
+              <div className="col-6 text-center">
+                <h4>Email</h4>
+              </div>
+              <div className="col-6 text-center">
                 <input
                   className="form-control"
-                  onInput={this.handleRoleInput}
+                  onInput={this.handleEmailInput}
                 />
               </div>
             </div>
             <div className="row d-flex justify-content-center falseEditRow">
-              {this.state.addBtnState ? (
+              {this.state.phoneValidated &&
+              this.state.fNameInput !== "" &&
+              this.state.lNameInput !== "" &&
+              this.state.passInput !== "" &&
+              this.state.streetAddress !== null &&
+              this.state.cityInput !== "" &&
+              this.state.provinceInput !== "" &&
+              this.state.roleInput !== "" ? (
                 <button
                   className="btn btn-lg tutorBtn"
                   onClick={this.handleTutor}

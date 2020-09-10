@@ -4,6 +4,16 @@
   font-weight: bold !important;
 }
 
+.dayBtn {
+  background-color: #539c96 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.dayBtn:hover {
+  background-color: #cb7d1d !important;
+}
+
 .trueRow {
   text-align: center;
   margin-top: 1rem;

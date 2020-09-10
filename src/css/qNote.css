@@ -17,5 +17,25 @@
 .buttons {
   margin-right: 5rem;
   margin-left: 5rem;
-  margin-top:2rem;
+  margin-top: 2rem;
+}
+
+.qBtn {
+  background-color: #cb7d1d !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.qContainer {
+  background-color: #17406b;
+  border-radius: 2rem;
+  color: #fff;
+}
+
+.tableColor {
+  color: #fff;
+}
+
+.th {
+  background-color: #33a3e2;
 }

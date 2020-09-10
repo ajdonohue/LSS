@@ -18,6 +18,7 @@ class AppointmentTutorCurrentAppt extends Component {
     super(props);
     this.state = {
       nextAppointment: null,
+      fullName: " ",
       minutes: 0,
       seconds: 0,
       interval: null,
@@ -41,6 +42,7 @@ class AppointmentTutorCurrentAppt extends Component {
         nextAppointment: this.props.sortedAppointments[0],
       });
       this.checkState();
+      if (this.state.nextAppointment) this.getStudentName();
     }
   };
 
@@ -153,7 +155,7 @@ class AppointmentTutorCurrentAppt extends Component {
       .get(tID)
       .then(function (doc) {
         doc.bookedAppointments = doc.bookedAppointments.filter(
-          (e) => e.date !== histObj.date && e.startTime !== histObj.startTime
+          (e) => e.id !== histObj.id
         );
         return tDB.put(doc);
       })
@@ -194,6 +196,27 @@ class AppointmentTutorCurrentAppt extends Component {
     );
   };
 
+  getStudentName = async () => {
+    let sDB = new PouchDB(
+      "https://b705ce6d-2856-466b-b76e-7ebd39bf5225-bluemix.cloudant.com/students"
+    );
+
+    let sPromise = new Promise((resolve, reject) => {
+      sDB
+        .get(this.state.nextAppointment.studentID)
+        .then(function (doc) {
+          let fullName = doc.fName + " " + doc.lName;
+          resolve(fullName);
+        })
+        .catch(function (err) {
+          reject(err);
+        });
+    });
+
+    let sResult = await sPromise;
+    this.setState({ fullName: sResult });
+  };
+
   renderAppointmentReady = () => {
     return (
       <div className="row d-flex justify-content-end">
@@ -201,14 +224,12 @@ class AppointmentTutorCurrentAppt extends Component {
           <div className="row">
             <div className="col-4">
               <h2>
-                {" "}
-                {this.state.minutes} : {this.state.seconds}{" "}
+                {this.state.minutes} : {this.state.seconds}
               </h2>
             </div>
             <div className="col-8">
               <h2>
-                {" "}
-                Student Name -{" "}
+                {this.state.fullName}-{" "}
                 {this.state.nextAppointment
                   ? this.state.nextAppointment.studentID
                   : "Oops"}{" "}

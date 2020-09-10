@@ -3,6 +3,12 @@ import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import PouchDB from "pouchdb";
 
+// --- PROPS ---
+// currentQ: is the current Queue
+// ETA: is how long the student will have to wait to see the Tutor
+// error: passes any errors that happens.
+// --- PROPS ---
+
 const categoryRender = observer(
   class CategoryRender extends Component {
     constructor(props) {
@@ -10,67 +16,11 @@ const categoryRender = observer(
       this.state = {
         currentQ: this.props.currentQ,
         ETA: this.props.ETA,
-        error: false
+        error: false,
       };
     }
 
-    /*queues:
-{
-  "_id": "newdate",
-  "_rev": "1-cd987fbcf59ed3ec6d748a7cc7c0e69c",
-  "studentID": 20155411,
-  "programID": "writing",
-  "appointmentStart": "getTime()",
-  "appointmentEnd": "getTime()"
-} */
-
-    /////////
-    ////////Moved this to cat store, will have to provide with student ID when called
-
-    // createQ = () => {
-    //   let uuid = new Date().getTime();
-    //   var db = new PouchDB(
-    //     "https://b705ce6d-2856-466b-b76e-7ebd39bf5225-bluemix.cloudant.com/programs"
-    //   );
-
-    //   let programID = this.props.name;
-    //   db.get(this.props.name)
-    //     .then(function(doc) {
-    //       //console.log(doc);
-    //       doc._rev = doc._rev;
-    //       let qObj = {
-    //         id: uuid,
-    //         studentID: 201554111,
-    //         programID: programID,
-    //         appointmentStart: 0,
-    //         appointmentEnd: 0
-    //       };
-    //       doc.activeQ.push(qObj);
-    //       return db.put(doc);
-    //     })
-    //     .then(function() {
-    //       db.get(programID);
-    //     })
-    //     .then(function(doc) {
-    //       console.log(doc);
-    //     });
-    //   // .then(function() {
-    //   //   // fetch again
-    //   //   return db.get(programID);
-    //   // })
-    //   // .catch(function(err) {
-    //   //   if (err.name === "conflict") {
-    //   //     db.get(programID).then(function(doc) {
-    //   //       doc.activeQ.push(qObj);
-    //   //     });
-    //   //   }
-    //   // });
-    // };
-
     handleWaitlist = () => {
-      //works off student ID now
-      //might have to add some methods to clear?
-      //unsure at this time
       let sID = sessionStorage.getItem("studentID");
       if (sID) {
         this.props.catStore.Waitlist(this.props.name, sID);
@@ -85,10 +35,10 @@ const categoryRender = observer(
 
       let sInfoPromise = new Promise((resolve, reject) => {
         db.get(sID)
-          .then(function(doc) {
+          .then(function (doc) {
             resolve(doc);
           })
-          .catch(function(err) {
+          .catch(function (err) {
             reject(err);
           });
       });
@@ -102,15 +52,14 @@ const categoryRender = observer(
           this.props.name +
           " tutoring. \n Your appointment should be ready in " +
           this.props.ETA +
-          " minutes. \n Thank you for using Learner Success Services"
+          " minutes. \n Thank you for using Learner Success Services",
       };
 
-      //console.log(message);
       fetch("/SMS", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(message)
-      }).then(res => {
+        body: JSON.stringify(message),
+      }).then((res) => {
         res.json();
         console.log(res);
       });
@@ -123,11 +72,11 @@ const categoryRender = observer(
 
     render() {
       return (
-        <div className="col catCard">
+        <div className="col">
           <div className="card">
-            <div className="card-header">{this.props.name}</div>
+            <div className="card-header tutorCatH">{this.props.name}</div>
             <div className="card-body">
-              <p>{this.props.desc}</p>
+              <p className="text-white">{this.props.desc}</p>
               <span>
                 <h5>
                   Queue : <b>{this.props.currentQ}</b>
@@ -139,12 +88,14 @@ const categoryRender = observer(
                 </h6>
               </span>
               <Link to="/waitlisted">
-                <button
-                  className="btn btn-dark"
-                  onClick={this.handleWaitAndSMS}
-                >
-                  Waitlist
-                </button>
+                <div className="text-center">
+                  <button
+                    className="btn waitlistBtn"
+                    onClick={this.handleWaitAndSMS}
+                  >
+                    Waitlist
+                  </button>
+                </div>
               </Link>
             </div>
           </div>

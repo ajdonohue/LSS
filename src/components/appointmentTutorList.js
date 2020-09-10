@@ -32,23 +32,33 @@ class AppointmentTutorList extends Component {
   renderAppointments = () => {
     let counter = 0;
     if (this.state.appointments) {
-      return this.state.appointments.map((e) => (
-        <div className="col" key={e.id}>
-          <div
-            className={
-              this.isOdd(counter++) ? "trueQRow rounded " : "falseQRow rounded"
-            }
-            key={Math.random()}
-          >
-            <div className="row d-flex justify-content-center">
-              Date: {e.date} | Student ID: {e.studentID}
-            </div>
-            <div className="row d-flex justify-content-center">
-              Start Time {e.startTime} | End Time: {e.endTime}
+      if (this.state.appointments.length !== 0) {
+        return this.state.appointments.map((e) => (
+          <div className="col" key={e.id}>
+            <div
+              className={
+                this.isOdd(counter++)
+                  ? "trueQRow rounded "
+                  : "falseQRow rounded"
+              }
+              key={Math.random()}
+            >
+              <div className="row d-flex justify-content-center">
+                Date: {e.date} | Student ID: {e.studentID}
+              </div>
+              <div className="row d-flex justify-content-center">
+                Start Time {e.startTime} | End Time: {e.endTime}
+              </div>
             </div>
           </div>
-        </div>
-      ));
+        ));
+      } else {
+        return (
+          <div className="col emptyQContainer">
+            <p className="emptyQPara">No students currently in queue!</p>
+          </div>
+        );
+      }
     }
   };
 
@@ -58,26 +68,6 @@ class AppointmentTutorList extends Component {
         <div className="col">
           <div className="row d-flex justify-content-around">
             <h3 className="appointmentHead">Upcoming Appointmets</h3>
-            <span>
-              {this.state.btnState ? (
-                <button
-                  type="button"
-                  className="getNextApp btn btn-default"
-                  onClick={this.getActiveQ}
-                >
-                  Get Next Appointment
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="getNextApp btn btn-default"
-                  onClick={this.getActiveQ}
-                  disabled
-                >
-                  Get Next Appointment
-                </button>
-              )}
-            </span>
           </div>
         </div>
         <div className="container">{this.renderAppointments()}</div>

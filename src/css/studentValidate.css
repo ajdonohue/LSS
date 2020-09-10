@@ -1,0 +1,42 @@
+.bookBtn {
+  background-color: #cb7d1d !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.validateLead {
+  text-align: center;
+  font-weight: 700;
+}
+
+.validateContainer {
+  width: 65%;
+  text-align: center;
+  background-color: #17406b;
+  border-radius: 25px;
+  padding: 2rem;
+}
+
+.validateForm {
+  margin: auto;
+  width: 80%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.boxHeaders {
+  color: #fff;
+}
+
+.hideVerified {
+  display: none;
+}
+
+.showUnVerified {
+  display: flex;
+  background-color: #33a3e2;
+  border-radius: 5rem;
+  margin-top: 4%;
+  width: 50%;
+  justify-content: center;
+}

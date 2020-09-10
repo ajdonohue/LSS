@@ -4,6 +4,9 @@ import "../css/peerCategoryRender.css";
 //
 // Props -
 //
+// --- PROPS ---
+// selectedDay: is the day that is selected
+// --- PROPS ---
 // department: department for peer tutoring
 // monday ... fridayTimes: array of objects with start & endtimes, as well as location
 // of the peertutoring session
@@ -21,7 +24,7 @@ class PeerCategoryRender extends Component {
       if (this.props.mondayTimes.length === 0) {
         return (
           <div className="row">
-            <div className="coll">
+            <div className="col text-center">
               <h3>No times for this day</h3>
             </div>
           </div>
@@ -39,7 +42,7 @@ class PeerCategoryRender extends Component {
       if (this.props.tuesdayTimes.length === 0) {
         return (
           <div className="row">
-            <div className="col">
+            <div className="col text-center">
               <h3>No times for this day</h3>
             </div>
           </div>
@@ -57,7 +60,7 @@ class PeerCategoryRender extends Component {
       if (this.props.wednesdayTimes.length === 0) {
         return (
           <div className="row">
-            <div className="coll">
+            <div className="col text-center">
               <h3>No times for this day</h3>
             </div>
           </div>
@@ -75,7 +78,7 @@ class PeerCategoryRender extends Component {
       if (this.props.thursdayTimes.length === 0) {
         return (
           <div className="row">
-            <div className="coll">
+            <div className="col text-center">
               <h3>No times for this day</h3>
             </div>
           </div>
@@ -93,7 +96,7 @@ class PeerCategoryRender extends Component {
       if (this.props.fridayTimes.length === 0) {
         return (
           <div className="row">
-            <div className="coll">
+            <div className="col text-center">
               <h3>No times for this day</h3>
             </div>
           </div>
@@ -116,22 +119,25 @@ class PeerCategoryRender extends Component {
 
   render() {
     return (
-      <div className="container mainBG">
-        <div className="row">
-          <div className="col">{this.props.department}</div>
-        </div>
-        <div className="row d-flex justify-content-center">
-          <div className="col">
-            <select onChange={this.handleSelectChange}>
-              <option value="mon">Monday</option>
-              <option value="tues">Tuesday</option>
-              <option value="wed">Wednesday</option>
-              <option value="thurs">Thursday</option>
-              <option value="fri">Friday</option>
-            </select>
+      <div className="col">
+        <div className="card">
+          <div className="card-header">{this.props.department}</div>
+          <div className="card-body">
+            <div className="col">
+              <select
+                className="form-control"
+                onChange={this.handleSelectChange}
+              >
+                <option value="mon">Monday</option>
+                <option value="tues">Tuesday</option>
+                <option value="wed">Wednesday</option>
+                <option value="thurs">Thursday</option>
+                <option value="fri">Friday</option>
+              </select>
+            </div>
+            <> {this.renderDayTimes()}</>
           </div>
         </div>
-        <> {this.renderDayTimes()}</>
       </div>
     );
   }

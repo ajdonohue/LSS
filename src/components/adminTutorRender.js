@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PouchDB from "pouchdb";
 import Modal from "react-bootstrap/Modal";
-import bodyParser from "body-parser";
 
 //
 // Props -
@@ -55,10 +54,7 @@ class AdminTutorRender extends Component {
       .changes({ since: "now", live: true, include_docs: true })
       .on("change", () => {
         this.renderTutor();
-        console.log("TUTOR DB UPDATED");
       });
-    //await this.fetchPeerTutoring();
-    // this.generatePrograms();
   };
 
   handleEditVisibility = () => {
@@ -78,7 +74,7 @@ class AdminTutorRender extends Component {
   };
 
   handleProgInput = (e) => {
-    this.setState({ progInput: e.target.value, updateBtnState: true });
+    this.setState({ progInput: e.target.value });
   };
 
   handlePhoneInput = (e) => {
@@ -140,7 +136,7 @@ class AdminTutorRender extends Component {
   };
 
   handleRoleInput = (e) => {
-    this.setState({ roleInput: e.target.value, updateBtnState: true });
+    this.setState({ roleInput: e.target.value });
   };
 
   handleDeleteTutor = () => {
@@ -366,6 +362,7 @@ class AdminTutorRender extends Component {
               </div>
               <div className="col-6 text-center">
                 <select
+                  className="form-control"
                   value={this.state.progInput}
                   onChange={this.handleProgInput}
                 >
@@ -472,11 +469,15 @@ class AdminTutorRender extends Component {
                 <h4>Role</h4>
               </div>
               <div className="col-6 text-center">
-                <input
+                <select
+                  onChange={this.handleRoleInput}
                   className="form-control"
                   defaultValue={this.state.roleInput}
-                  onChange={this.handleRoleInput}
-                />
+                >
+                  <option value="Tutor">Tutor</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Appointment">Appointment</option>
+                </select>
               </div>
             </div>
             <div

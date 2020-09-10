@@ -32,7 +32,6 @@ class AppointmentBookingRow extends Component {
   handleRowAndClass = () => {
     this.props.rowClick(this.props.timeSlot);
     this.setState({ clicked: !this.state.clicked });
-    console.log(this.state.clicked);
   };
 
   convertAppointmentTime = (time) => {
@@ -58,9 +57,8 @@ class AppointmentBookingRow extends Component {
   render() {
     return (
       <div
-        className="row"
         onClick={this.handleRowAndClass}
-        className={this.state.clicked ? "rowSelected" : "rowDefault"}
+        className={this.state.clicked ? "row rowSelected" : "rowDefault"}
       >
         <div className="col">
           {this.convertAppointmentTime(this.props.timeSlot)} -{" "}

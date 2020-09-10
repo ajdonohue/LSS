@@ -40,7 +40,7 @@ class AdminSideNav extends Component {
             </li>
           </Link>
           <Link>
-            <li className="sideNavLI" onClick={this.handleLogout}>
+            <li className="sideNavLILogout" onClick={this.handleLogout}>
               {" "}
               Logout{" "}
             </li>

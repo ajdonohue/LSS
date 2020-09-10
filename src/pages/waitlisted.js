@@ -7,22 +7,20 @@ class Waitlisted extends Component {
       <div className="container">
         <div className="successContainer">
           <h1 className="display-1">Success!</h1>
-          <p className="lead waitPara">
+          <h3 className="lead waitPara">
             You have successfully been added to the waitlist! Check your phone
             for details{" "}
-          </p>
+          </h3>
         </div>
         <div className="row btnHome">
           <div className="col-6 d-flex justify-content-center">
             <Link to="/">
-              <button className="btn btn-lg btn-dark homeBtn">Home</button>
+              <button className="btn btn-lg qBtn">Home</button>
             </Link>
           </div>
           <div className="col-6 d-flex justify-content-center">
             <Link to="/categories">
-              <button className="btn btn-lg btn-dark homeBtn">
-                Categories
-              </button>
+              <button className="btn btn-lg qBtn">Categories</button>
             </Link>
           </div>
         </div>

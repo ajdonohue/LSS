@@ -4,8 +4,22 @@
   border-radius: 1rem;
   margin-right: 5%;
   margin-left: 5rem;
+  width: 20em !important;
+}
+
+.descBG {
+  background-color: #17406b;
+  color: #fff;
+  border-radius: 1rem;
+  margin-right: 5%;
+  margin-left: 5rem;
+  width: 20em !important;
 }
 
 .timeRow {
   background-color: #17406b;
+}
+
+.card {
+  background-color: aqua;
 }

@@ -5,6 +5,14 @@ import HistoryRender from "../components/historyRender";
 import AdminSideNav from "../components/adminSideNav";
 import AdminTutors from "../components/adminTutors";
 import AdminPeerCat from "../components/adminPeerCat";
+import AdminQueueCat from "../components/adminQueueCat";
+import DashboardAnalytics from "../components/dashboardAnalytics";
+
+//
+//Props -
+//
+//scene: set scene to tutor
+//history: browser router prop for navigating
 
 const adminHome = observer(
   class AdminHome extends Component {
@@ -62,8 +70,6 @@ const adminHome = observer(
     };
     handleQueueCategoriesScene = () => {
       this.setState({ scene: "queueCategories" });
-
-      console.log("clicked");
     };
 
     handleAnalyticsScene = () => {
@@ -79,11 +85,11 @@ const adminHome = observer(
       if (scene === "tutor") {
         return <AdminTutors />;
       } else if (scene === "queueCategories") {
-        return <h1>queue cat to be added</h1>;
+        return <AdminQueueCat />;
       } else if (scene === "peerCategories") {
         return <AdminPeerCat />;
       } else if (scene === "analytics") {
-        return <h1>anals to be added</h1>;
+        return <DashboardAnalytics tutorStore={this.props.tutorStore} />;
       } else if (scene === "history") {
         return <div className="row">{this.renderHistory()}</div>;
       }

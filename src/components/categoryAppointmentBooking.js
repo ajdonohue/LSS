@@ -126,7 +126,6 @@ class CategoryAppointmentBooking extends Component {
       sArray.push(time);
       this.setState({ selectedTimes: sArray });
     }
-    console.log(this.state.selectedTimes);
   };
 
   renderDayAppointments = () => {
@@ -210,6 +209,7 @@ class CategoryAppointmentBooking extends Component {
     );
 
     let appointment = {
+      id: d.getTime(),
       date: date,
       startTime: startTime,
       endTime: endTime,
@@ -239,7 +239,6 @@ class CategoryAppointmentBooking extends Component {
   };
 
   render() {
-    let date = this.state.date;
     return (
       <div className="container">
         <div className="row d-flex justify-content-center">

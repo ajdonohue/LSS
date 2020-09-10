@@ -1,0 +1,22 @@
+.bookBtn {
+  background-color: #cb7d1d !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.validateLead {
+  text-align: center;
+  font-weight: 700;
+}
+
+.validateContainer {
+  width: 65%;
+  text-align: center;
+  background-color: #17406b;
+  border-radius: 25px;
+  padding: 2rem;
+}
+
+.boxHeaders {
+  color: #fff;
+}

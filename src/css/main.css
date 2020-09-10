@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.fatFont {
+  font-weight: 600;
+}
+
 .row {
   padding-top: 2%;
   padding-bottom: 2%;
@@ -15,13 +19,25 @@
   text-align: center;
   padding-bottom: 2%;
 }
-
-.catCard {
-  margin-bottom: 5%;
+.card-header {
+  background-color: #2087bc !important;
+  font-size: x-large;
+}
+.card-body {
+  color: #fff !important;
 }
 
 .card {
-  width: 14rem;
+  width: 20rem;
+  background-color: #17406b !important;
+  color: #fff;
+  height: 18rem;
+  margin-bottom: 2em;
+}
+.waitlistBtn {
+  background-color: #cb7d1d !important;
+  color: #fff !important;
+  font-weight: bold !important;
 }
 
 .historyCard {
@@ -80,8 +96,9 @@
   width: 80%;
   text-align: center;
   margin-top: 15%;
-  background-color: #f2f4f5;
+  background-color: #2087bc;
   border-radius: 25px;
+  color: #fff;
 }
 
 .emptyQContainer {
@@ -91,13 +108,6 @@
   margin-top: 5%;
   background-color: #f2f4f5;
   border-radius: 25px;
-}
-
-.validateForm {
-  margin: auto;
-  width: 80%;
-  padding-top: 5%;
-  padding-bottom: 5%;
 }
 
 .hideEmailVerified {
@@ -250,8 +260,13 @@ a:focus {
 .navbar {
   min-height: 10vh;
 }
-
+.navTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .sideNav {
+  position: relative;
   color: #f2f4f5;
   width: 13%;
   min-height: 90vh;
@@ -259,9 +274,30 @@ a:focus {
   color: #fff;
   transition: all 0.3s;
 }
+.topBarNav {
+  display: none;
+  color: white;
+}
 
-.sideNavLI:hover {
-  background-color: #2087bc;
+@media only screen and (max-width: 1120px) {
+  .sideNav {
+    display: none;
+  }
+  .navTitle {
+    display: none;
+  }
+  .topBarNav {
+    display: inline-block;
+  }
+}
+.sideNavLI {
+  padding-bottom: 2rem;
+}
+
+.sideNavLILogout {
+  position: absolute;
+  left: 30%;
+  bottom: 1rem;
 }
 
 .sidebar-header {
@@ -276,25 +312,6 @@ a:focus {
   text-align: center;
 }
 
-.sideNav ul p {
-  color: #fff;
-}
-
-.sideNav ul li a {
-  padding: 10px;
-  font-size: 1.1em;
-  display: block;
-}
-.sideNav ul li a:hover {
-  color: #004e95;
-  background: #fff;
-}
-
-.sideNav ul li.active > a,
-a[aria-expanded="true"] {
-  color: #fff;
-  background: #004e95;
-}
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
@@ -316,4 +333,8 @@ ul ul a {
 #dropdowntutor {
   margin-top: 6em;
   margin-left: 2em;
+}
+
+* {
+  font-family: "myriad-pro", "Tahoma", "Helvetica", Calibri, sans-serif;
 }

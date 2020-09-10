@@ -10,13 +10,10 @@ import CategoryAppointmentBooking from "../components/categoryAppointmentBooking
 //
 // Props -
 //
-//
-
-// ----- TODO -----
-//
-// Add prop list
-// Normalize and finish styling
-//
+//peerCategories: array of peer tutoring categories
+//appointmentTutors: array of tutors
+//scene: set to main
+//selectedAppointmentTutor: the tutor which student tries to book appointment with
 
 const tutoringCategories = observer(
   class TutoringCategories extends Component {
@@ -35,7 +32,6 @@ const tutoringCategories = observer(
       this.props.catStore.Fetch();
       await this.fetchPeerTutoring();
       await this.fetchAppointmentTutors();
-      console.log(this.state.appointmentTutors);
     };
 
     fetchAppointmentTutors = async () => {
@@ -157,7 +153,9 @@ const tutoringCategories = observer(
             </div>
           </div>
           <div className="cards">
-            <div className="row row-cols-sm">{this.renderPeerCategories()}</div>
+            <div className="row row-cols-sm d-flex justify-content-around">
+              {this.renderPeerCategories()}
+            </div>
           </div>
           <div className="row">
             <div className="col categoryLead">
@@ -168,7 +166,9 @@ const tutoringCategories = observer(
             </div>
           </div>
           <div className="cards">
-            <div className="row row-cols-sm">{this.renderCategories()}</div>
+            <div className="row row-cols-sm d-flex justify-content-center">
+              {this.renderCategories()}
+            </div>
           </div>
           <div className="row">
             <div className="col categoryLead">
@@ -177,7 +177,7 @@ const tutoringCategories = observer(
             </div>
           </div>
           <div className="cards">
-            <div className="row row-cols-sm">
+            <div className="row row-cols-sm d-flex justify-content-around">
               {this.renderAppointmentCategories()}
             </div>
           </div>
