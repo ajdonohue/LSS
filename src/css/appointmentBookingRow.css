@@ -1,0 +1,21 @@
+.rowSelected {
+  background-color: #1d7dbc;
+  color: #fff;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.rowDefault {
+  background-color: #17406b;
+  color: #fff;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 25px;
+  text-align: center;
+}

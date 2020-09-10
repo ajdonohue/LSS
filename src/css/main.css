@@ -1,0 +1,319 @@
+.homeLead {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.row {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.categoryLead {
+  margin: auto;
+  padding-top: 4%;
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.catCard {
+  margin-bottom: 5%;
+}
+
+.card {
+  width: 14rem;
+}
+
+.historyCard {
+  margin-bottom: 5%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.validateLead {
+  margin: auto;
+  padding-top: 5%;
+  width: 80%;
+  text-align: center;
+}
+
+.currentQCard {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.qCardBtns {
+  position: relative;
+  margin-top: 2.5%;
+}
+
+.qStartBtn {
+  position: relative;
+  right: 30%;
+}
+
+.qEndBtn {
+  position: relative;
+  left: 30%;
+}
+
+.validateBtn {
+  padding-top: 5%;
+}
+
+.waitPara {
+  padding-bottom: 5%;
+}
+
+.validateContainer {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  margin-top: 5%;
+  background-color: #f2f4f5;
+  border-radius: 25px;
+}
+
+.successContainer {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  margin-top: 15%;
+  background-color: #f2f4f5;
+  border-radius: 25px;
+}
+
+.emptyQContainer {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  margin-top: 5%;
+  background-color: #f2f4f5;
+  border-radius: 25px;
+}
+
+.validateForm {
+  margin: auto;
+  width: 80%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.hideEmailVerified {
+  display: none;
+}
+
+.showEmailVerified {
+  display: block;
+}
+
+.hidePhoneVerified {
+  display: none;
+}
+
+.showPhoneVerified {
+  display: block;
+}
+
+.hideSIDVerified {
+  display: none;
+}
+
+.showSIDVerified {
+  display: block;
+}
+
+.showCatBtn {
+  display: block;
+}
+
+.hideCatBtn {
+  display: none;
+}
+
+.slideShow {
+  background: black;
+  height: 400px;
+}
+
+.navContainer {
+  background-color: #004e95;
+}
+
+.logoPH {
+  height: 50px;
+  width: 150px;
+}
+
+.lead {
+  margin-top: 100px;
+}
+
+.appointmentHead {
+  margin: 0;
+  display: inline-block;
+}
+
+.homePara {
+  margin-top: 30px;
+}
+
+.emptyQPara {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.trueQRow {
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #2087bc;
+  color: #fff;
+  padding: 1rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.falseQRow {
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #17406b;
+  color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.fullQContainer {
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+  background-color: #f2f4f5;
+  border-radius: 25px;
+}
+
+.homeBtn {
+  margin: auto;
+}
+
+.btnHome {
+  margin-top: 75px;
+}
+
+.sideNav.active {
+  margin-left: -250px;
+}
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
+}
+
+.dashAnal {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+a {
+  color: #f2f4f5;
+}
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.navbar {
+  min-height: 10vh;
+}
+
+.sideNav {
+  color: #f2f4f5;
+  width: 13%;
+  min-height: 90vh;
+  background: #004e95;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.sideNavLI:hover {
+  background-color: #2087bc;
+}
+
+.sidebar-header {
+  padding: 20px;
+  background: #004e95;
+  text-align: center;
+}
+
+.sideNav ul.components {
+  margin-top: 5%;
+  border-bottom: 1px solid #004e95;
+  text-align: center;
+}
+
+.sideNav ul p {
+  color: #fff;
+}
+
+.sideNav ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+.sideNav ul li a:hover {
+  color: #004e95;
+  background: #fff;
+}
+
+.sideNav ul li.active > a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #004e95;
+}
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #444961;
+}
+
+.mx-auto {
+  font-size: 40px;
+  color: #f2f4f5;
+}
+#studentlist {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+#dashboardtitle {
+  margin-top: 1em;
+  margin-left: 1em;
+}
+#dropdowntutor {
+  margin-top: 6em;
+  margin-left: 2em;
+}

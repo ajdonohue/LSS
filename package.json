@@ -1,0 +1,50 @@
+{
+  "name": "lss",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "browser-router": "^0.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-pino-logger": "^4.0.0",
+    "history": "^4.10.1",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "pino": "^5.17.0",
+    "pouchdb": "^7.2.1",
+    "pouchdb-find": "^7.2.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-calendar": "^3.0.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:5000/",
+  "devDependencies": {
+    "twilio": "^3.42.1"
+  }
+}

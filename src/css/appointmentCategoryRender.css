@@ -1,0 +1,11 @@
+.mainContainer {
+  background-color: #1d7dbc;
+  color: #fff;
+  border-radius: 1rem;
+}
+
+.bookBtn {
+  background-color: #cb7d1d !important;
+  color: #fff !important;
+  font-weight: bold !important;
+}

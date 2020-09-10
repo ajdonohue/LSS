@@ -1,0 +1,17 @@
+.trueQRow {
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #2087bc;
+  color: #fff;
+  padding: 1rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.falseQRow {
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #17406b;
+  color: #fff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
